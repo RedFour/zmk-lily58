@@ -34,15 +34,15 @@
 		lower_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |  TO_D |  F1 |  F2 |  F3  |  F4  |  F5  |                    | CALC |   7   |   8   |  9   |   -   | CLEAR    |
-// | TOG_L |  F6 |  C< |  ^   |  C>  |  F7  |                    |      |   4   |   5   |  6   |   +   | C_MUTE   |
-// | TOG_R |     |  <- |  v   |  ->  |      |                    |      |   1   |   2   |  3   |   *   | KP_ENTER |
-// | TOG_U |  F8 |  F9 |  F10 |  F11 |  F12 | VOL_DN |  | VOL_UP | CTRL |   =   |   0   |  .   |   /   |   \      |
+// |       |  F6 |  C< |  ^   |  C>  |  F7  |                    |      |   4   |   5   |  6   |   +   | C_MUTE   |
+// |  TO_R |     |  <- |  v   |  ->  |      |                    |      |   1   |   2   |  3   |   *   | KP_ENTER |
+// |  TO_U |  F8 |  F9 |  F10 |  F11 |  F12 | VOL_DN |  | VOL_UP | CTRL |   =   |   0   |  .   |   /   |   \      |
 //                     |      |      |      |        |  |        |      |       |       |
 			bindings = <
 &to 0     &kp F1  &kp F2         &kp F3    &kp F4           &kp F5                                   &kp K_CALC  &kp N7     &kp N8   &kp N9       &kp KP_MINUS     &kp KP_CLEAR
-&tog 1    &kp F6  &kp LC(LEFT)   &kp UP    &kp LC(RIGHT)    &kp F7                                   &trans      &kp N4     &kp N5   &kp N6       &kp KP_PLUS      &kp C_MUTE
-&tog 2    &trans  &kp LEFT       &kp DOWN  &kp RIGHT        &trans                                   &trans      &kp N1     &kp N2   &kp N3       &kp KP_MULTIPLY  &kp KP_ENTER
-&tog 3    &kp F8  &kp F9         &kp F10   &kp F11          &kp F12   &kp C_VOL_DN   &kp C_VOL_UP    &kp RCTRL   &kp EQUAL  &kp N0   &kp KP_DOT   &kp KP_DIVIDE    &kp BSLH
+&trans    &kp F6  &kp LC(LEFT)   &kp UP    &kp LC(RIGHT)    &kp F7                                   &trans      &kp N4     &kp N5   &kp N6       &kp KP_PLUS      &kp C_MUTE
+&to 2    &trans  &kp LEFT       &kp DOWN  &kp RIGHT        &trans                                   &trans      &kp N1     &kp N2   &kp N3       &kp KP_MULTIPLY  &kp KP_ENTER
+&to 3    &kp F8  &kp F9         &kp F10   &kp F11          &kp F12   &kp C_VOL_DN   &kp C_VOL_UP    &kp RCTRL   &kp EQUAL  &kp N0   &kp KP_DOT   &kp KP_DIVIDE    &kp BSLH
                                  &trans    &trans           &trans    &trans         &trans          &trans      &trans     &trans
 			>;
 
@@ -51,16 +51,16 @@
 
 		raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |        |                   |  F13  |  F14  |  F15  |  F16  |  F17  |       |
+// |  TO_D |     |     |      |      |        |                   |  F13  |  F14  |  F15  |  F16  |  F17  |       |
 // |   \   | "|" |  *  |  {   |  }   |  ^     |                   | PG_UP | PG_DN |  HOME | END   |  INS  |  DEL  |
 // |   `   |  !  |  @  |  #   |  $   |  %     |                   |   &   |  (    |  )    |  [    |   ]   |   ~   |
-// |       |     |     |      |      |        |        |  |       |   "   |  _    |  +    |  CAPS |       |       |
+// |  TO_L |     |     |      |      |        |        |  |       |   "   |  _    |  +    |  CAPS |       |       |
 //                     |      |      |        |        |  |       |       |       |       |
 			bindings = < 
-&trans	   &trans    &trans 	 &trans    &trans      &trans                		   &kp F13   &kp F14   &kp F15      &kp F16       &kp F17   &trans
+&to 0	   &trans    &trans 	 &trans    &trans      &trans                		   &kp F13   &kp F14   &kp F15      &kp F16       &kp F17   &trans
 &kp BSLH   &kp PIPE  &kp ASTRK   &kp LBRC  &kp RBRC    &kp CARET                       &kp PG_UP &kp PG_DN &kp HOME     &kp END       &kp INS   &kp DEL
 &kp GRAVE  &kp EXCL  &kp AT      &kp HASH  &kp DOLLAR  &kp PRCNT                       &kp AMPS  &kp LPAR  &kp RPAR     &kp LBKT      &kp RBKT  &kp TILDE
-&trans	   &trans    &trans 	 &trans    &trans      &trans       &trans   &trans    &kp DQT   &kp UNDER &kp KP_PLUS  &kp CAPS      &trans    &trans
+&to 1	   &trans    &trans 	 &trans    &trans      &trans       &trans   &trans    &kp DQT   &kp UNDER &kp KP_PLUS  &kp CAPS      &trans    &trans
                                  &trans    &trans      &trans       &trans   &trans    &trans    &trans    &trans
 			>;
 
@@ -69,14 +69,14 @@
 
 		util_layer {
 // ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1   | BT2    |  BT3   |  BT4 |  BT5   |                   |  F13  |  F14  |  F15  |  F16  |  F17  |  F18  |
-// |       |       |        |        |      |        |                   |  F19  |  F20  |  F21  |  F22  |  F23  |  F24  |
+// | TO_D  | BT1   | BT2    |  BT3   |  BT4 |  BT5   |                   |  F13  |  F14  |  F15  |  F16  |  F17  |  F18  |
+// |       |       |        |        |      | BTCLR |                   |  F19  |  F20  |  F21  |  F22  |  F23  |  F24  |
 // |       |       |        |        |      |        |                   |       |       |       |       |       |       |
 // |       | EP_ON | EP_OFF | EP_TOG |      |        |        |  |       |       |       |       |       |       |       |
 //                     		|        |      |        |        |  |       |       |       |       |
 			bindings = < 
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                    &kp F13   &kp F14   &kp F15       &kp F16   &kp F17   &kp F18
-&trans     &trans           &trans         	  &trans          	&trans       &trans                       	 &kp F19   &kp F20   &kp F21       &kp F22   &kp F23   &kp F24
+&to 0 	   &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                    &kp F13   &kp F14   &kp F15       &kp F16   &kp F17   &kp F18
+&trans     &trans           &trans         	  &trans          	&trans       &bt BT_CLR                   	 &kp F19   &kp F20   &kp F21       &kp F22   &kp F23   &kp F24
 &trans     &trans         	&trans            &trans          	&trans   	 &trans                       	 &trans	   &trans    &trans 	   &trans    &trans    &trans
 &trans     &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &trans       &trans       &trans   &trans    &trans	   &trans    &trans 	   &trans    &trans    &trans
                                               &trans            &trans       &trans       &trans   &trans    &trans    &trans    &trans
