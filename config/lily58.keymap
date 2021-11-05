@@ -40,7 +40,7 @@
 //                     |      |      |      |        |  |        |      |       |       |
 			bindings = <
 &to 0     &kp F1  &kp F2         &kp F3    &kp F4           &kp F5                                   &kp K_CALC  &kp N7     &kp N8   &kp N9       &kp KP_MINUS     &kp KP_CLEAR
-&tog 1    &kp F6  &kp LC(LEFT)   &kp UP    &kp LC(LRIGHT)   &kp F7                                   &trans      &kp N4     &kp N5   &kp N6       &kp KP_PLUS      &kp C_MUTE
+&tog 1    &kp F6  &kp LC(LEFT)   &kp UP    &kp LC(RIGHT)    &kp F7                                   &trans      &kp N4     &kp N5   &kp N6       &kp KP_PLUS      &kp C_MUTE
 &tog 2    &trans  &kp LEFT       &kp DOWN  &kp RIGHT        &trans                                   &trans      &kp N1     &kp N2   &kp N3       &kp KP_MULTIPLY  &kp KP_ENTER
 &tog 3    &kp F8  &kp F9         &kp F10   &kp F11          &kp F12   &kp C_VOL_DN   &kp C_VOL_UP    &kp RCTRL   &kp EQUAL  &kp N0   &kp KP_DOT   &kp KP_DIVIDE    &kp BSLH
                                  &trans    &trans           &trans    &trans         &trans          &trans      &trans     &trans
