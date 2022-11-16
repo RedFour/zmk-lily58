@@ -26,7 +26,7 @@
 //                     | ALT  | CTRL  | BSPC |  SHIFT |  | SPACE | RAISE| LOWER | GUI   |
             bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4     &kp N5                         &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W  &kp F    &kp P      &kp B                          &kp J  &kp L    &kp U     &kp Y   &kp ;    &kp SQT
+&kp TAB   &kp Q  &kp W  &kp F    &kp P      &kp B                          &kp J  &kp L    &kp U     &kp Y   &kp SEMI &kp SQT
 &kp EQUAL &kp A  &kp R  &kp S    &kp T      &kp G                          &kp M  &kp N    &kp E     &kp I   &kp O    &kp RET
 &sl 3     &kp Z  &kp X  &kp C    &kp D      &kp V     &kp DEL    &tog 1    &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LCTRL  &kp BSPC  &kp LSHFT  &kp SPACE &mo 2  &mo 1    &kp RGUI
@@ -53,14 +53,14 @@
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |     |     |      |      |      |                  |  L-0  |  L-4  | L-5   |      |      |  TO_U  |
 // |       | "|" |  *  |  -   |  +   |      |                  |       |  [    |   ]   |   `  |  ~   |        |
-// |       |  !  |  @  |  #   |  $   |  %   |                  |   &   |  (    |   )   |   =  |  \   |        |
-// |       |     |     |  "   |  '   |  ^   | K_APP |  | CAPS  |   _   |  {    |   }   |      |      |        |
+// |       |  !  |  @  |  #   |  $   |  %   |                  |   &   |  (    |   )   |   =  |      |        |
+// |       |     |     |  "   |  '   |  ^   | K_APP |  | CAPS  |   _   |  {    |   }   |      |   \  |        |
 //                     |      |      |      |       |  |       |       |       |       |
             bindings = < 
 &kp ESC  &none     &none      &none      &none       &none                              &to 0      &to 4     &to 5     &none      &none      &to 3
 &none    &kp PIPE  &kp ASTRK  &kp MINUS  &kp PLUS    &none                              &none      &kp LBKT  &kp RBKT  &kp GRAVE  &kp TILDE  &none
-&none    &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PRCNT                          &kp AMPS   &kp LPAR  &kp RPAR  &kp EQUAL  &kp BSLH   &none   
-&none    &none     &none      &kp DQT    &kp SQT     &kp CARET   &kp K_APP  &caps_word  &kp UNDER  &kp LBRC  &kp RBRC  &none      &none      &none
+&none    &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PRCNT                          &kp AMPS   &kp LPAR  &kp RPAR  &kp EQUAL  &none      &none
+&none    &none     &none      &kp DQT    &kp SQT     &kp CARET   &kp K_APP  &caps_word  &kp UNDER  &kp LBRC  &kp RBRC  &none      &kp BSLH   &none
                               &trans     &trans      &trans      &trans     &trans      &trans     &trans    &trans
             >;
         };
