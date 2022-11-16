@@ -20,6 +20,86 @@
         default_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4    |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB  |  Q  |  W  |  F   |  P    |  B   |                   |  J   |  L    |  U    |  Y   |   ;   |   '   |
+// |   =   |  A  |  R  |  S   |  T    |  G   |                   |  M   |  N    |  E    |  I   |   O   | ENTER |
+// |  SL_3 |  Z  |  X  |  C   |  D    |  V   |   DEL  |  | TOG_L |  K   |  H    |  ,    |  .   |   /   | SHIFT |
+//                     | ALT  | CTRL  | BSPC |  SHIFT |  | SPACE | RAISE| LOWER | GUI   |
+            bindings = <
+&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4     &kp N5                         &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
+&kp TAB   &kp Q  &kp W  &kp F    &kp P      &kp B                          &kp J  &kp L    &kp U     &kp Y   &kp ;    &kp SQT
+&kp EQUAL &kp A  &kp R  &kp S    &kp T      &kp G                          &kp M  &kp N    &kp E     &kp I   &kp O    &kp RET
+&sl 3     &kp Z  &kp X  &kp C    &kp D      &kp V     &kp DEL    &tog 1    &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LALT &kp LCTRL  &kp BSPC  &kp LSHFT  &kp SPACE &mo 2  &mo 1    &kp RGUI
+            >;
+        };
+
+        lower_layer {
+// ------------------------------------------------------------------------------------------------------------
+// | ESC   |      |     |  A^  |      |      |                    | CALC  |   =   |   (   |  )   |   /   | C_MUTE |
+// | PG_UP |  A<  | CS< |  ^   |  CS> |  A>  |                    | ESC   |   7   |   8   |  9   |   *   | VOL_UP |
+// | PG_DN | HOME |  <- |  v   |  ->  | END  |                    |   .   |   4   |   5   |  6   |   -   | VOL_DN |
+// | PSCRN |      |  C< |  Av  |  C>  |      |  INS   |  | TOG_L  |   0   |   1   |   2   |  3   |   +   | ENTER  |
+//                      |      |      |      |        |  |        |       |       |       |
+            bindings = <
+&kp ESC    &none        &none            &kp LA(UP)    &none              &none                     &kp C_AL_CALC  &kp KP_EQUAL  &kp KP_LPAR  &kp KP_RPAR  &kp KP_DIVIDE    &kp C_MUTE
+&kp PG_UP  &kp LA(LEFT) &kp LC(LS(LEFT)) &kp UP        &kp LC(LS(RIGHT))  &kp LA(RIGHT)             &kp ESC        &kp N7        &kp N8       &kp N9       &kp KP_MULTIPLY  &kp C_VOL_UP
+&kp PG_DN  &kp HOME     &kp LEFT         &kp DOWN      &kp RIGHT          &kp END                   &kp KP_DOT     &kp N4        &kp N5       &kp N6       &kp KP_MINUS     &kp C_VOL_DN
+&kp PSCRN  &none        &kp LC(LEFT)     &kp LA(DOWN)  &kp LC(RIGHT)      &none    &kp INS  &tog 1  &kp N0         &kp N1        &kp N2       &kp N3       &kp KP_PLUS      &kp KP_ENTER
+                                         &trans        &trans             &trans   &trans   &trans  &trans         &trans        &trans
+            >;
+        };
+
+        raise_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |     |     |      |      |      |                  |  L-0  |  L-4  | L-5   |      |      |  TO_U  |
+// |       | "|" |  *  |  -   |  +   |      |                  |       |  [    |   ]   |   `  |  ~   |        |
+// |       |  !  |  @  |  #   |  $   |  %   |                  |   &   |  (    |   )   |   =  |  \   |        |
+// |       |     |     |  "   |  '   |  ^   | K_APP |  | CAPS  |   _   |  {    |   }   |      |      |        |
+//                     |      |      |      |       |  |       |       |       |       |
+            bindings = < 
+&kp ESC  &none     &none      &none      &none       &none                              &to 0      &to 4     &to 5     &none      &none      &to 3
+&none    &kp PIPE  &kp ASTRK  &kp MINUS  &kp PLUS    &none                              &none      &kp LBKT  &kp RBKT  &kp GRAVE  &kp TILDE  &none
+&none    &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PRCNT                          &kp AMPS   &kp LPAR  &kp RPAR  &kp EQUAL  &kp BSLH   &none   
+&none    &none     &none      &kp DQT    &kp SQT     &kp CARET   &kp K_APP  &caps_word  &kp UNDER  &kp LBRC  &kp RBRC  &none      &none      &none
+                              &trans     &trans      &trans      &trans     &trans      &trans     &trans    &trans
+            >;
+        };
+
+        util_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  F1   |  F2   |  F3   |  F4   |  F5   |                  | BT1   | BT2         | BT3         |  BT4   |  BT5 | BTCLR  |                
+// |  F6   |  F7   |  F8   |  F9   |  F10  |  F11  |                  | CSESC | ALT SHFT =  | ALT SHFT -  |        |      | EP_ON  |                  
+// |  F13  |  F14  |  F15  |  F16  |  F17  |  F18  |                  | ACDEL | CTRL SHFT T | CTRL SHFT P |        |      | EP_OFF |                  
+// |  F19  |  F20  |  F21  |  F22  |  F23  |  F24  |  F12  |  | tog 1 | ALTF4 | CTRL F2     |             |        |      | EP_TOG |    
+//                         |       |       | ENTER | SPACE |  |       |       |             |             |
+            bindings = <
+&kp ESC  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                      &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                
+&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11                     &kp LC(LS(ESC))  &kp LA(LS(EQUAL))  &kp LA(LS(MINUS))  &none         &none         &ext_power EP_ON                   
+&kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                     &kp LA(LC(DEL))  &kp LC(LS(F))      &kp LC(LS(R))      &none         &none         &ext_power EP_OFF                         
+&kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &kp F12    &tog 1  &kp LA(F4)       &kp LC(F2)         &none              &none         &none         &ext_power EP_TOG
+                           &trans   &trans   &kp RET  &kp SPACE  &trans  &trans           &trans             &trans
+            >;
+        };
+
+        game_layer {
+// ------------------------------------------------------------------------------------------------------------
+// | ESC |   1  |  2  |  3  |  4   |  5  |                  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6   |
+// | TAB |   T  |  Q  |  W  |  E   |  R  |                  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12  |
+// |  G  | SHFT |  A  |  S  |  D   |  F  |                  |  F13 |  F14 |  F15 |  F16 |  F17 |  F18  |
+// |  M  |   B  |  Z  |  X  |  C   |  V  |   I   |  | J     |  F19 |  F20 |  F21 |  F22 |  F23 |  F24 |
+//                    | ALT | CTRL |  P  | SPACE |  | ENTER |      |      |      |
+            bindings = < 
+&kp ESC   &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                           &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
+&kp TAB   &kp F      &kp Q   &kp W   &kp K   &kp S                            &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
+&kp G     &kp LSHFT  &kp A   &kp D   &kp V   &kp E                            &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18   
+&kp H     &kp T      &kp Z   &kp X   &kp C   &kp B   &kp L      &kp J         &kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
+                             &trans  &trans  &kp R   &kp SPACE  &kp KP_ENTER  &trans   &trans   &trans
+            >;
+        };
+        
+        qwerty_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4    |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
 // |  TAB  |  Q  |  W  |  E   |  R    |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   '   |
 // |   =   |  A  |  S  |  D   |  F    |  G   |                   |  H   |  J    |  K    |  L   |   ;   | ENTER |
 // |  SL_3 |  Z  |  X  |  C   |  V    |  B   |   DEL  |  | TOG_L |  N   |  M    |  ,    |  .   |   /   | SHIFT |
@@ -30,70 +110,6 @@
 &kp EQUAL &kp A  &kp S  &kp D    &kp F      &kp G                          &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp RET
 &sl 3     &kp Z  &kp X  &kp C    &kp V      &kp B     &kp DEL    &tog 1    &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LCTRL  &kp BSPC  &kp LSHFT  &kp SPACE &mo 2  &mo 1    &kp RGUI
-            >;
-        };
-
-        lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  TO_D |      |     |  A^  |      |      |                    | CALC  |   =   |   (   |  )   |   /   | C_MUTE |
-// | PG_UP |  A<  | CS< |  ^   |  CS> |  A>  |                    | ESC   |   7   |   8   |  9   |   *   | VOL_UP |
-// | PG_DN | HOME |  <- |  v   |  ->  | END  |                    |   .   |   4   |   5   |  6   |   -   | VOL_DN |
-// | PSCRN |      |  C< |  Av  |  C>  |      |  INS   |  | TOG_L  |   0   |   1   |   2   |  3   |   +   | ENTER  |
-//                      |      |      |      |        |  |        |       |       |       |
-            bindings = <
-&to 0      &none        &none            &kp LA(UP)    &none              &none                     &kp C_AL_CALC  &kp KP_EQUAL  &kp KP_LPAR  &kp KP_RPAR  &kp KP_DIVIDE    &kp C_MUTE
-&kp PG_UP  &kp LA(LEFT) &kp LC(LS(LEFT)) &kp UP        &kp LC(LS(RIGHT))  &kp LA(RIGHT)             &kp ESC        &kp N7        &kp N8       &kp N9       &kp KP_MULTIPLY  &kp C_VOL_UP
-&kp PG_DN  &kp HOME     &kp LEFT         &kp DOWN      &kp RIGHT          &kp END                   &kp KP_DOT     &kp N4        &kp N5       &kp N6       &kp KP_MINUS     &kp C_VOL_DN
-&kp PSCRN  &none        &kp LC(LEFT)     &kp LA(DOWN)  &kp LC(RIGHT)      &none    &kp INS  &tog 1  &kp N0         &kp N1        &kp N2       &kp N3       &kp KP_PLUS      &kp KP_ENTER
-                                         &trans        &trans             &trans   &trans   &trans  &trans         &trans        &trans
-            >;
-        };
-
-        raise_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                  |       |       |       |      |      |  TO_U  |
-// |       | "|" |  *  |  -   |  +   |      |                  |       |  [    |   ]   |   `  |  ~   |        |
-// |       |  !  |  @  |  #   |  $   |  %   |                  |   &   |  (    |   )   |   =  |  \   |        |
-// |       |     |     |  "   |  '   |  ^   | K_APP |  | CAPS  |   _   |  {    |   }   |      |      |        |
-//                     |      |      |      |       |  |       |       |       |       |
-            bindings = < 
-&none  &none     &none      &none      &none       &none                              &none      &none     &none     &none      &none      &to 3
-&none  &kp PIPE  &kp ASTRK  &kp MINUS  &kp PLUS    &none                              &none      &kp LBKT  &kp RBKT  &kp GRAVE  &kp TILDE  &none
-&none  &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PRCNT                          &kp AMPS   &kp LPAR  &kp RPAR  &kp EQUAL  &kp BSLH   &none   
-&none  &none     &none      &kp DQT    &kp SQT     &kp CARET   &kp K_APP  &caps_word  &kp UNDER  &kp LBRC  &kp RBRC  &none      &none      &none
-                            &trans     &trans      &trans      &trans     &trans      &trans     &trans    &trans
-            >;
-        };
-
-        util_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | TO_D  |  F1   |  F2   |  F3   |  F4   |  F5   |                  | BT1   | BT2         | BT3         |  BT4   |  BT5 | BTCLR  |                
-// |  F6   |  F7   |  F8   |  F9   |  F10  |  F11  |                  | CSESC | ALT SHFT =  | ALT SHFT -  |        |      | EP_ON  |                  
-// |  F13  |  F14  |  F15  |  F16  |  F17  |  F18  |                  | ACDEL | CTRL SHFT T | CTRL SHFT P |        |      | EP_OFF |                  
-// |  F19  |  F20  |  F21  |  F22  |  F23  |  F24  |  F12  |  | TOG 4 | ALTF4 | CTRL F2     |             |        |      | EP_TOG |    
-//                         |       |       | ENTER | SPACE |  |       |       |             |             |
-            bindings = <
-&to 0    &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                      &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                
-&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11                     &kp LC(LS(ESC))  &kp LA(LS(EQUAL))  &kp LA(LS(MINUS))  &none         &none         &ext_power EP_ON                   
-&kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                     &kp LA(LC(DEL))  &kp LC(LS(F))      &kp LC(LS(R))      &none         &none         &ext_power EP_OFF                         
-&kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &kp F12    &tog 4  &kp LA(F4)       &kp LC(F2)         &none              &none         &none         &ext_power EP_TOG
-                           &trans   &trans   &kp RET  &kp SPACE  &trans  &trans           &trans             &trans
-            >;
-        };
-
-        game_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | ESC |   1  |  2  |  3  |  4   |  5  |                  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6   |
-// | TAB |   T  |  Q  |  W  |  E   |  R  |                  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12  |
-// |  G  | SHFT |  A  |  S  |  D   |  F  |                  |  F13 |  F14 |  F15 |  F16 |  F17 |  F18  |
-// |  M  |   B  |  Z  |  X  |  C   |  V  |   I   |  | TOG 4 |  F19 |  F20 |  F21 |  F22 |  F23 |  F24 |
-//                    | ALT | CTRL |  P  | SPACE |  | ENTER |      |      |      |
-            bindings = < 
-&kp ESC   &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                           &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
-&kp TAB   &kp F      &kp Q   &kp W   &kp K   &kp S                            &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
-&kp G     &kp LSHFT  &kp A   &kp D   &kp V   &kp E                            &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18   
-&kp H     &kp T      &kp Z   &kp X   &kp C   &kp B   &kp L      &tog 4        &kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24
-                             &trans  &trans  &kp R   &kp SPACE  &kp KP_ENTER  &trans   &trans   &trans
             >;
         };
     };
