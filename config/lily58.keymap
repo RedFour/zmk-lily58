@@ -51,13 +51,13 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |     |     |      |      |      |                  |  L-4  |  L-5  |       |      |      |        |
+// |  ESC  |     |     |      |      |      |                  |  L-4  |  L-5  |       |      |      |  boot  |
 // |       | "|" |  *  |  -   |  +   |      |                  |       |  [    |   ]   |   `  |  ~   |        |
 // |       |  !  |  @  |  #   |  $   |  %   |                  |   &   |  (    |   )   |   =  |      |        |
 // |       |     |     |  "   |  '   |  ^   | K_APP |  | TO-0  |   _   |  {    |   }   |      |   \  |        |
 //                     |      |      |      |       |  |       |       |       |       |
             bindings = < 
-&kp ESC  &none     &none      &none      &none       &none                          &to 4      &to 5     &none     &none      &none      &none
+&kp ESC  &none     &none      &none      &none       &none                          &to 4      &to 5     &none     &none      &none      &bootloader
 &none    &kp PIPE  &kp ASTRK  &kp MINUS  &kp PLUS    &none                          &caps_word &kp LBKT  &kp RBKT  &kp GRAVE  &kp TILDE  &none
 &none    &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PRCNT                      &kp AMPS   &kp LPAR  &kp RPAR  &kp EQUAL  &none      &none
 &none    &none     &none      &kp DQT    &kp SQT     &kp CARET   &kp K_APP  &to 0   &kp UNDER  &kp LBRC  &kp RBRC  &none      &kp BSLH   &none
@@ -67,16 +67,16 @@
 
         util_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  F1   |  F2   |  F3   |  F4   |  F5   |                  | BT1   | BT2         | BT3         |  BT4   |  BT5 | BTCLR  |                
+// |  boot |  F1   |  F2   |  F3   |  F4   |  F5   |                  | BT1   | BT2         | BT3         |  BT4   |  BT5 | BTCLR  |                
 // |  F6   |  F7   |  F8   |  F9   |  F10  |  F11  |                  | CSESC | ALT SHFT =  | ALT SHFT -  |        |      | EP_ON  |                  
 // |  F13  |  F14  |  F15  |  F16  |  F17  |  F18  |                  | ACDEL | CTRL SHFT T | CTRL SHFT P |        |      | EP_OFF |                  
 // |  F19  |  F20  |  F21  |  F22  |  F23  |  F24  |  F12  |  | TO-0  | ALTF4 | CTRL F2     |             |        |      | EP_TOG |    
 //                         |       |       | ENTER | SPACE |  |       |       |             |             |
             bindings = <
-&kp ESC  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                      &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                
-&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11                     &kp LC(LS(ESC))  &kp LA(LS(EQUAL))  &kp LA(LS(MINUS))  &none         &none         &ext_power EP_ON                   
-&kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                     &kp LA(LC(DEL))  &kp LC(LS(F))      &kp LC(LS(R))      &none         &none         &ext_power EP_OFF                         
-&kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &kp F12    &to 0   &kp LA(F4)       &kp LC(F2)         &none              &none         &none         &ext_power EP_TOG
+&bootloader  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                      &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                
+&kp F6       &kp F7   &kp F8   &kp F9   &kp F10  &kp F11                     &kp LC(LS(ESC))  &kp LA(LS(EQUAL))  &kp LA(LS(MINUS))  &none         &none         &ext_power EP_ON                   
+&kp F13      &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                     &kp LA(LC(DEL))  &kp LC(LS(F))      &kp LC(LS(R))      &none         &none         &ext_power EP_OFF                         
+&kp F19      &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &kp F12    &to 0   &kp LA(F4)       &kp LC(F2)         &none              &none         &none         &ext_power EP_TOG
                            &trans   &trans   &kp RET  &kp SPACE  &trans  &trans           &trans             &trans
             >;
         };
